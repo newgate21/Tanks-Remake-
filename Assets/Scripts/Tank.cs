@@ -6,25 +6,14 @@ public class Tank : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float FireRate;
-    [SerializeField] private float TimeBtwShot = 0;
-    private Vector2 firingDirection;
+    [SerializeField] private float FireDelay;
 
-    // Update is called once per frame
-    void Update()
+    private Vector2 firingDirection;
+    private TimedDelayer delayerScript;
+
+    private void Start()
     {
-        if (TimeBtwShot <= 0)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                //Fire();
-                TimeBtwShot = FireRate;
-            }
-        }
-        else
-        {
-            TimeBtwShot -= Time.deltaTime;
-        }
+        delayerScript = GetComponent<TimedDelayer>();
     }
 
     public void Move(Vector2 _movementVector2)
@@ -41,7 +30,17 @@ public class Tank : MonoBehaviour
     {
         // Check if prefab exists
         if (projectilePrefab == null) return;
+   
+        if (delayerScript != null)
+        {
+            // Check if firing too fast
+            if (delayerScript.IsDelayInProgress) return;
+            
+            // Start the time delay for firing
+            delayerScript.StartDelay(FireDelay);
+        }
 
+        // Create a new projectile
         GameObject newProjectile = Instantiate<GameObject>(projectilePrefab, transform.position, transform.rotation, transform);
         newProjectile.transform.SetParent(null);
 

@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
     <Compile Include="Assets\Scripts\Tank.cs" />
+    <Compile Include="Assets\Scripts\TimedDelayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
