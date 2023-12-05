@@ -44,14 +44,7 @@ public class Tank : MonoBehaviour
         GameObject newProjectile = Instantiate<GameObject>(projectilePrefab, transform.position, transform.rotation, transform);
         newProjectile.transform.SetParent(null);
 
-        // Get the rigidbody component of the projectile
-        Rigidbody2D projectileRb = newProjectile.GetComponent<Rigidbody2D>();
-
-        // Check if the projectile has a Rigidbody component
-        if (projectileRb != null)
-        {
-            // Apply force to shoot the projectile
-            projectileRb.AddForce(firingDirection * newProjectile.GetComponent<Projectile>().ProjectileSpeed, ForceMode2D.Impulse);
-        }
+        // Trigger a firing action
+        newProjectile.GetComponent<Projectile>().Fire(firingDirection);
     }
 }
