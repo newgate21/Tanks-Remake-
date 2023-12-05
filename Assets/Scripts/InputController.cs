@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
+    [SerializeField] private MousePositionReader mousePositionReader;
     [SerializeField] private Paddle paddle;
     [SerializeField] private Tank tank;
 
@@ -12,9 +13,7 @@ public class InputController : MonoBehaviour
     {
         ManageMenuCommands();
 
-        ManageMovementCommands();
-
-        ManageMousePosition();
+        ManagePlayerCommands();
     }
 
     private void ManageMenuCommands()
@@ -45,7 +44,16 @@ public class InputController : MonoBehaviour
         }
     }
 
-    private void ManageMovementCommands()
+    private void ManagePlayerCommands()
+    {
+        CheckPlayerMovement();
+
+        UpdateMousePosition();
+
+        CheckPlayerFire();
+    }
+
+    private void CheckPlayerMovement()
     {
         Vector2 movement = Vector2.zero;
 
@@ -71,10 +79,26 @@ public class InputController : MonoBehaviour
 
         if (movement != Vector2.zero)
         {
-            tank.Move(movement);
+            tank.Move(Vector3.Normalize(movement));
         }
     }
 
-    private void ManageMousePosition()
-    { }
+    private void UpdateMousePosition()
+    {
+        // Get the mouse position
+        Vector3 mousePosition = mousePositionReader.MousePosition;
+
+        // Pass it to the UI: TODO
+
+        // Pass it to the player tank
+        tank.UpdateFiringDirection(mousePosition);
+    }
+
+    private void CheckPlayerFire()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            tank.Fire();
+        }
+    }
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6931256541509791244}
   - component: {fileID: 3196002176934043959}
   - component: {fileID: -2405604884166652025}
-  m_Layer: 0
+  - component: {fileID: -901172674675055428}
+  m_Layer: 7
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,14 +96,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358314356210615428}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -161,4 +162,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1484fd43a23d545baeef6f1d97e29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  ProjectileSpeed: 20
+--- !u!114 &-901172674675055428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358314356210615428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e00007a4c35a5344a119d189ddf301a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lifetime: 3

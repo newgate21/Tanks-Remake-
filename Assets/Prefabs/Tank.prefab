@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5801437491686708189}
   - component: {fileID: 8148125523183915745}
   - component: {fileID: 4230987621184533115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa31068606745a48b64638ab9fea02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: 0}
-  projectilePrefab: {fileID: 6931256541509791244, guid: 8127fe461e97af245852051962a10afa, type: 3}
+  MoveSpeed: 0
+  projectilePrefab: {fileID: 1358314356210615428, guid: 8127fe461e97af245852051962a10afa, type: 3}
   FireRate: 2
+  TimeBtwShot: 0
