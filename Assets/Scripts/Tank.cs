@@ -24,7 +24,7 @@ public class Tank : MonoBehaviour
     public void UpdateFiringDirection(Vector3 _newFiringPosition)
     {
         // Calculate the direction vector from the current position to the firing position
-        firingDirection = Vector3.Normalize(_newFiringPosition - transform.position);
+        firingDirection = (Vector2)(_newFiringPosition - transform.position);
     }
     public void Fire()
     {
@@ -45,6 +45,6 @@ public class Tank : MonoBehaviour
         newProjectile.transform.SetParent(null);
 
         // Trigger a firing action
-        newProjectile.GetComponent<Projectile>().Fire(firingDirection);
+        newProjectile.GetComponent<Projectile>().Fire(firingDirection.normalized);
     }
 }

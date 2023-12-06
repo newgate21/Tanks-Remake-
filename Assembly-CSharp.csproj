@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\AudioController.cs" />
     <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\TimedDelayer.cs" />
+    <Compile Include="Assets\Scripts\CollisionDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
