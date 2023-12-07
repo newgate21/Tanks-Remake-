@@ -2,25 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : MonoBehaviour
+public class BaseTank : MonoBehaviour
 {
-    [SerializeField] private float MoveSpeed;
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float FireDelay;
+    [SerializeField] protected short hitPoints;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] protected float fireDelay;
 
-    private Vector2 firingDirection;
-    private TimedDelayer delayerScript;
+    protected Vector2 firingDirection;
+    protected TimedDelayer delayerScript;
 
-    private void Start()
+    protected void Start()
     {
         delayerScript = GetComponent<TimedDelayer>();
     }
-
-    public void Move(Vector2 _movementVector2)
-    {
-        transform.Translate(_movementVector2 * MoveSpeed * Time.deltaTime);
-    }
-
     public void UpdateFiringDirection(Vector3 _newFiringPosition)
     {
         // Calculate the direction vector from the current position to the firing position
@@ -28,17 +23,14 @@ public class Tank : MonoBehaviour
     }
     public void Fire()
     {
-        // Check if prefab exists
         if (projectilePrefab == null) return;
-   
-        if (delayerScript != null)
-        {
-            // Check if firing too fast
-            if (delayerScript.IsDelayInProgress) return;
-            
-            // Start the time delay for firing
-            delayerScript.StartDelay(FireDelay);
-        }
+        if (delayerScript == null) return;
+
+        // Check if firing too fast
+        if (delayerScript.IsDelayInProgress) return;
+
+        // Start the time delay for firing
+        delayerScript.StartDelay(fireDelay);
 
         // Create a new projectile
         GameObject newProjectile = Instantiate<GameObject>(projectilePrefab, transform.position, transform.rotation, transform);

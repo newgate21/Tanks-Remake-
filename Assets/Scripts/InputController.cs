@@ -7,7 +7,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private GameController gameController;
     [SerializeField] private MousePositionReader mousePositionReader;
     [SerializeField] private Paddle paddle;
-    [SerializeField] private Tank tank;
+    [SerializeField] private PlayerTank playerTank;
 
     private void Update()
     {
@@ -79,7 +79,7 @@ public class InputController : MonoBehaviour
 
         if (movement != Vector2.zero)
         {
-            tank.Move(Vector3.Normalize(movement));
+            playerTank.Move(Vector3.Normalize(movement));
         }
     }
 
@@ -91,14 +91,14 @@ public class InputController : MonoBehaviour
         // Pass it to the UI: TODO
 
         // Pass it to the player tank
-        tank.UpdateFiringDirection(mousePosition);
+        playerTank.UpdateFiringDirection(mousePosition);
     }
 
     private void CheckPlayerFire()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            tank.Fire();
+            playerTank.Fire();
         }
     }
 }

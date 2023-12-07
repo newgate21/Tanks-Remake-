@@ -70,9 +70,12 @@
     <Compile Include="Assets\Scripts\TimedDestructor.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\BaseTank.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
-    <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\TimedDelayer.cs" />
+    <Compile Include="Assets\Scripts\EnemyTank1.cs" />
+    <Compile Include="Assets\Scripts\PlayerTank.cs" />
+    <Compile Include="Assets\Scripts\BaseEnemyTank.cs" />
     <Compile Include="Assets\Scripts\CollisionDetector.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
         UIController.UpdateScoreText(Score);
         UIController.HideGameOver();
         UIController.HideStartGame();
-        blockController.ResetBlocks();
+        //blockController.ResetBlocks();
     }
 
     public void PauseGame()
